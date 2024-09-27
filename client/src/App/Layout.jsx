@@ -5,7 +5,7 @@ function Layout({user}) {
   return (
     <>
     <nav>
-        <div>
+        <div style={{fontSize: "30px"}}>
             <ul style={{display: "flex", gap: "20px", listStyle: "none"}}>
                 
                     {
