@@ -13,9 +13,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
 a {
   font-weight: 500;
-  color: #646cff;
+  font-size: 35px;
+  color: #382f2a;
   text-decoration: inherit;
 }
 a:hover {
@@ -23,6 +29,7 @@ a:hover {
 }
 
 body {
+  background: url(https://www.psdgraphics.com/file/windows-7-wallpaper-1920x1200.jpg);
   margin: 0;
   display: flex;
   place-items: center;

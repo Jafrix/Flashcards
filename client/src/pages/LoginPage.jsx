@@ -20,8 +20,8 @@ function LoginPage({setUser}) {
   };
 
   return (
-    <div>
-        <form onSubmit={onSubmitHandler}>
+    <div >
+        <form onSubmit={onSubmitHandler} style={{display: "flex", flexDirection: "column", gap: "20px", padding: "20px", border: "5px, solid, #00bfff ", borderRadius: "10px"}}>
             <label>
                 Никнейм
                 <input type="text"
