@@ -94,8 +94,8 @@ module.exports = {
         },
         {
           id: 11,
-          question: "true === 'false' ?",
-          answer: "да",
+          question: "true === 'true' ?",
+          answer: "нет",
           themeId: 2,
           createdAt: new Date(),
           updatedAt: new Date(),
