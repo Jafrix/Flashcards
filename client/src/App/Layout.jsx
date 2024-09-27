@@ -1,7 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
+import { axiosInstance } from '../axiosInstance'
+import ThemeItem from '../component/Theme/ThemeItem'
 
 function Layout({user}) {
+
+    const [themes, setThemes] = useState([])
+    
+
+
+
+    const loadThemes = async () => {
+        try {
+            const response = await axiosInstance.get("/theme")
+            
+            if (response.status === 200){
+                setThemes(response.data.themes)   
+            }
+        } catch (error) {
+            console.log(error.message);
+        } 
+    }
+
+
+
+useEffect(() => {
+    loadThemes();
+}, []
+);
+
   return (
     <>
     <nav>
@@ -26,12 +53,9 @@ function Layout({user}) {
         <li>
               <Link to={"/"}></Link>
             </li>
-            <li>
-              <Link to={"/theme1"}>Тема 1</Link>
-            </li>
-            <li>
-              <Link to={"/theme2"}>Тема 2</Link>
-            </li>
+            {
+               themes.map((obj) => <ThemeItem key={obj.id} obj ={obj}/>) 
+            }
             
           </ul>
         </div>

@@ -12,6 +12,7 @@ import {
 import Layout from './Layout';
 import RegPage from '../pages/RegPage';
 import LoginPage from '../pages/LoginPage';
+import ThemePage from '../pages/ThemePage';
 
 
 function App() {
@@ -22,14 +23,9 @@ function App() {
       element: <Layout user={user} />,
       children: [
 {
-      path: "/theme1",
-      element: <div></div>,
+      path: "/question/:themeId/:questionId",
+      element: <ThemePage />,
     },
-    {
-      path: "/theme2",
-      element: <div></div>,
-    },
-    
     {
       path: "/reg",
       element: <RegPage setUser={setUser} />,
