@@ -8,7 +8,6 @@ const serverConfig = require("./config/serverConfig");
 serverConfig(app);
 app.use("/api", indexRouter);
 
-
 app.listen(process.env.PORT, () => {
-  console.log(`Флэшкардс работает на ${process.env.PORT}  порту ! `);
+  console.log(` ! Флэшкардс работает на ${process.env.PORT}  порту ! `);
 });
