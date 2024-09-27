@@ -9,6 +9,22 @@ class QuestionService {
     }
   }
 
+  static async getOneThemeQuestions(themeId) {
+    try {
+      return await Question.findAll({ where: { themeId } });
+    } catch (error) {
+      return error;
+    }
+  }
+
+  static async getOneThemeOneQuestion(themeId, questionId) {
+    try {
+      return await Question.findOne({ where: { themeId, id:questionId } });
+    } catch (error) {
+      return error;
+    }
+  }
+
   static async createQuestion(data) {
     try {
       return await Question.create(data);

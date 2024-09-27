@@ -11,7 +11,7 @@ module.exports = {
       },
       question: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       answer: {
         allowNull: false,

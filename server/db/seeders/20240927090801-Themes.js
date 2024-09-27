@@ -7,12 +7,14 @@ module.exports = {
       "Themes",
       [
         {
+          id: 1,
           title: "Герои нашего времени",
 
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
+          id: 2,
           title: "Эльбрусовцы",
 
           createdAt: new Date(),

@@ -3,7 +3,7 @@ const { Theme } = require("../db/models");
 class ThemeService {
   static async getThemes() {
     try {
-      // console.log(await Post.findAll(), '---------')
+    //   console.log(await Post.findAll(), '---------')
       return await Theme.findAll();
     } catch (error) {
       return error;

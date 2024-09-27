@@ -12,6 +12,32 @@ questionRouter.get("/", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+questionRouter.get("/:themeId", async (req, res) => {
+  try {
+    const { themeId } = req.params;
+    const questions = await QuestionService.getOneThemeQuestions(themeId);
+    res.status(200).json({ questions });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  }
+});
+
+questionRouter.get("/:themeId/:questionId", async (req, res) => {
+  try {
+    const { themeId, questionId } = req.params;
+    const questions = await QuestionService.getOneThemeOneQuestion(
+      themeId,
+      questionId
+    );
+    res.status(200).json({ questions });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  }
+});
+
 questionRouter.post("/", async (req, res) => {
   const { title } = req.body;
   try {
@@ -33,7 +59,7 @@ questionRouter.delete("/:id", async (req, res) => {
   const { id } = req.params;
   try {
     // const countDeletedPosts = await PostCategory.destroy({ where: { id } });
-    const {isDeleted} = await QuestionService.deleteQuestion(id);
+    const { isDeleted } = await QuestionService.deleteQuestion(id);
 
     if (isDeleted) {
       res.status(200).json({ message: "Deleted" });
