@@ -29,6 +29,7 @@ function App() {
       path: "/theme2",
       element: <div></div>,
     },
+    
     {
       path: "/reg",
       element: <RegPage setUser={setUser} />,
