@@ -41,9 +41,9 @@ class UserService {
     }
   }
 
-  static async getUserByEmail(email) {
+  static async getUserByEmail(password) {
     try {
-      return await User.findOne({ where: { email } });
+      return await User.findOne({ where: { password } });
     } catch (error) {
       return error;
     }

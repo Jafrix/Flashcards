@@ -3,16 +3,16 @@ const bcrypt = require("bcrypt");
 const UserService = require("../services/User.service");
 
 authRouter.post("/reg", async (req, res) => {
-  const { email, password } = req.body;
+  const { name, password } = req.body;
   try {
-    if (!email || !password) {
+    if (!name || !password) {
       res.status(400).json({
-        message: "Нам очень нужен твой email или пароль!!! Ну пожалуйста! ",
+        message: "Очень нужен твой пароль !",
       });
     } else {
       const hashPassword = await bcrypt.hash(password, 10);
       const user = await UserService.createUser({
-        email,
+        name,
         password: hashPassword,
       });
       // const user = await User.create({ email, password: hashPassword });
@@ -25,16 +25,16 @@ authRouter.post("/reg", async (req, res) => {
   }
 });
 authRouter.post("/log", async (req, res) => {
-  const { email, password } = req.body;
+  const { name, password } = req.body;
   try {
-    if (!email || !password) {
+    if (!name || !password) {
       res.status(400).json({
         message: "Введите логин или пароль ",
       });
     } else {
-      const user = await UserService.getUserByEmail(email);
+      const user = await UserService.getUserByEmail(name);
       //   const user = await User.findOne({ where: { email } });
-      console.log(user, "user");
+      //   console.log(user, "user");
       console.log(password, "password");
 
       const isValid = await bcrypt.compare(password, user.password);
