@@ -45,6 +45,9 @@ useEffect(() => {
   return (
     <>
     <form onSubmit={submitHandler}>
+      { themeId===1? (<img src={question.question} alt="img" />):(<p> {question.question} </p>)
+ 
+      }
       <img src={question.question} alt="img" />
       <input type="text" value={answer} onChange={(e) => setAnswer(e.target.value)}/>
       <button type="submit"> ОТВЕЧАЙ</button>
@@ -53,13 +56,19 @@ useEffect(() => {
       ТЫ не прав Дружок Пирожок</div>)}
       {correctAnswer && (<div>
         Молодчина</div>)}
-
-        {+questionId < 6 ? (<Link to={`/question/${themeId}/${+questionId+1}`}>
+{ themeId===1? ( +questionId < 6 ? (<Link to={`/question/${themeId}/${+questionId+1}`}>
+        Дальше
+        
+        </Link>):(
+        <Link to={`/`}>
+        Финиш
+        </Link>)):( +questionId <11  ? (<Link to={`/question/${themeId}/${+questionId+1}`}>
         Дальше
         </Link>):(
         <Link to={`/`}>
         Финиш
-        </Link>)}
+        </Link>))}
+        
 
 
      
